@@ -5,7 +5,7 @@ import model.Point;
 import utils.FileReaderUtil;
 import algorithms.GrahamScan;
 import algorithms.ChanAlgorithm;
-//import algorithms.PreparataHongMergeHull;  // Import PreparataHongMergeHull
+import algorithms.PreparataHongMergeHull;  // Import PreparataHongMergeHull
 
 public class Main {
     public static void main(String[] args) {
@@ -38,26 +38,8 @@ public class Main {
                     hull = chan.computeHull(points);  // Call to computeHull() for Chan's algorithm
                     break;
                 case 3:
-                    // Step 1: Sort the points
-                    Collections.sort(points);  // Sort the points based on the x and y coordinates
-                    
-                    // Step 2: Split the points into two halves
-                    List<Point> firstHalf = points.subList(0, points.size() / 2);
-                    List<Point> secondHalf = points.subList(points.size() / 2, points.size());
-                    
-                    // Step 3: Apply GrahamScan or Chan's Algorithm for each half
-                    GrahamScan graham2 = new GrahamScan();
-                    List<Point> hull1 = graham2.computeHull(firstHalf);
-                    List<Point> hull2 = graham2.computeHull(secondHalf);
-                    
-                    System.out.println("Hull 1: " + hull1);
-                    System.out.println("Hull 2: " + hull2);
-
-                    // Step 4: Merge the two hulls using Preparata and Hong’s Merge Hull
-                   // PreparataHongMergeHull mergeHull = new PreparataHongMergeHull();
-                   // hull = mergeHull.mergeHull(hull1, hull2);  // Merging the hulls
-
-                
+                   hull = PreparataHongMergeHull.computeHull(points);  // Merging the hulls
+               
                     break;
                 default:
                     System.out.println("❌ Invalid choice.");
