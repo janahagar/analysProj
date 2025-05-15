@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 import model.Point;
+import utils.ConvexHullVisualizerSwing;
 import utils.FileReaderUtil;
 import algorithms.GrahamScan;
 import algorithms.ChanAlgorithm;
@@ -52,6 +53,10 @@ public class Main {
                 System.out.println(p);  // Print each point in the hull
             }
 
+
+            ConvexHullVisualizerSwing.showVisualizer(points, hull);
+
+            
         } catch (IOException e) {
             System.out.println("❌ Error reading file: " + e.getMessage());
         } catch (Exception e) {
